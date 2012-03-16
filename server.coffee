@@ -20,6 +20,14 @@ server.configure(->
     server.use(mongooseAuth.middleware())
 )
 
+server.get("/test", (req, res)->
+    res.send("<pre>"+require("util").inspect(req))
+)
+
+server.get("/", (req, res)->
+    res.render("index")
+)
+
 mongooseAuth.helpExpress(server)
 server.listen(7000)
 
@@ -32,12 +40,12 @@ testUsers = ->
     ) if false
     
     User.find({}, (err, docs)->
-        console.log("found:",docs)
+        console.log("registered users:",docs)
     )
     
     User.remove({}, (err, count)->
         if err then throw err
-    )
+    ) if false
     
     setTimeout(->
         mongoose.disconnect()
