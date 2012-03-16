@@ -40,6 +40,20 @@ server.get("/", (req, res)->
     )
 )
 
+server.get("/users", (req, res)->
+    User.find({}, (err, docs)->
+        send_docs = (for doc in docs
+            {
+                id: doc.id
+                email: doc.email
+                updatedAt: doc.updatedAt
+                createdAt: doc.createdAt
+            }
+        )
+        res.send({error: err, docs: send_docs})
+    )
+)
+
 mongooseAuth.helpExpress(server)
 server.listen(7000)
 console.log("Express server listening on port %d", server.address().port)
