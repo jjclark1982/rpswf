@@ -11,7 +11,7 @@ server.configure(->
     server.set('views', __dirname+"/templates")
     server.set('view engine', 'mustache')
     #server.set('view options', {layout: false})
-    server.set('view options', {inspect: require("util").inspect})
+    #server.set('view options', {inspect: require("util").inspect, array:[2,3,4]})
     server.register(".mustache", stache)
     
     server.use(express.static(__dirname+"/static"))
@@ -35,7 +35,9 @@ server.get("/test", (req, res)->
 )
 
 server.get("/", (req, res)->
-    res.render("index")
+    User.find({}, (err, docs)->
+        res.render("index", {errors: [err], users: docs})
+    )
 )
 
 mongooseAuth.helpExpress(server)

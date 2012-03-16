@@ -1,1 +1,18 @@
-hello {{everyauth.user.email}} - {{everyauth.user}}
+{{#everyauth.loggedIn}}
+    <a href="/logout">Log out</a>
+{{/everyauth.loggedIn}}
+{{^everyauth.loggedIn}}
+    <a href="/login">Log in</a> or 
+    <a href="/register">Register</a>
+{{/everyauth.loggedIn}}
+
+<p>
+    Hello {{everyauth.user.email}}
+</p>
+
+Registered Users:
+<ul>
+    {{#users}}
+        <li>{{email}}</li>
+    {{/users}}
+</ul>

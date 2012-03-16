@@ -1,5 +1,10 @@
-<form action="" method="post">
-    login: <input type="text" name="{{everyauth.password.loginFormFieldName}}" value="{{everyauth.user.email}}"><br/>
-    password: <input type="password" name="{{everyauth.password.passwordFormFieldName}}"><br/>
-    <input type="submit" value="Submit" />
-</form>
+{{#everyauth.password}}
+    <form action="" method="post">
+        <label for="login-field">{{loginFormFieldName}}:</label>
+        <input id="login-field" type="text" name="{{loginFormFieldName}}" value="{{email}}">
+        <br/>
+        <label for="password-field">{{passwordFormFieldName}}:</label>
+        <input id="password-field" type="password" name="{{passwordFormFieldName}}"><br/>
+        <input type="submit" value="{{title}}" />
+    </form>
+{{/everyauth.password}}
