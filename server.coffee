@@ -43,12 +43,10 @@ server.get("/", (req, res)->
 server.get("/users", (req, res)->
     User.find({}, (err, docs)->
         send_docs = (for doc in docs
-            {
-                id: doc.id
-                email: doc.email
-                updatedAt: doc.updatedAt
-                createdAt: doc.createdAt
-            }
+            send_doc = {}
+            for field in ['id', 'name', 'createdAt', 'updatedAt']
+                send_doc[field] = doc[field]
+            send_doc
         )
         res.send({error: err, docs: send_docs})
     )
@@ -81,4 +79,4 @@ testUsers = ->
         mongoose.disconnect()
     , 2000) if false
     
-testUsers()
+testUsers() if false

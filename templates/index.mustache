@@ -7,12 +7,12 @@
 {{/everyauth.loggedIn}}
 
 <p>
-    Hello {{everyauth.user.email}}
+    Hello {{user.name}}
 </p>
 
 Registered Users:
 <ul>
     {{#users}}
-        <li>{{email}}</li>
+        <li>{{name}}</li>
     {{/users}}
 </ul>

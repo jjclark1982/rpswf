@@ -5,9 +5,11 @@
 	<title>{{#title}}{{title}}{{/title}}{{^title}}RPS{{/title}}</title>
 </head>
 <body>
-{{#errors}}
-    <font color="red">{{.}}</font>
-{{/errors}}
+<ul class="errors">
+    {{#errors}}
+        {{#.}}<li><font color="red">{{.}}</font></li>{{/.}}
+    {{/errors}}
+</ul>
 {{{body}}}
 </body>
 </html>

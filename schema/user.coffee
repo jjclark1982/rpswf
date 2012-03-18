@@ -4,7 +4,9 @@ ObjectId = Schema.ObjectId
 mongooseAuth = require("mongoose-auth")
 mongooseTypes = require("mongoose-types")
 
-UserSchema = new Schema({})
+UserSchema = new Schema({
+    name: {type: String, required: true}
+})
 UserSchema.plugin(mongooseTypes.useTimestamps)
 UserSchema.plugin(mongooseAuth, {
     everymodule: {
@@ -16,7 +18,7 @@ UserSchema.plugin(mongooseAuth, {
     password: {
         loginWith: 'email',
         extraParams: {
-            name: String
+            name: {type: String, required: true}
         },
         everyauth: {
             getLoginPath: '/login',
@@ -30,8 +32,15 @@ UserSchema.plugin(mongooseAuth, {
             loginSuccessRedirect: '/',
             registerSuccessRedirect: '/'
         }
+    },
+    facebook: {
+        everyauth: {
+            appId: "blah"
+            appSecret: "bluh"
+            redirectPath: '/'
+        }
     }
-});
+})
 UserSchema.pre('init', (next)->
     console.log("user init:",@)
     next()
