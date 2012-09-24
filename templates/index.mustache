@@ -1,0 +1,18 @@
+{{#everyauth.loggedIn}}
+    <a href="/logout">Log out</a>
+{{/everyauth.loggedIn}}
+{{^everyauth.loggedIn}}
+    <a href="/login">Log in</a> or 
+    <a href="/register">Register</a>
+{{/everyauth.loggedIn}}
+
+<p>
+    Hello {{user.name}}
+</p>
+
+Registered Users:
+<ul>
+    {{#users}}
+        <li>{{name}}</li>
+    {{/users}}
+</ul>

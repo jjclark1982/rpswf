@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>{{#title}}{{title}}{{/title}}{{^title}}RPS{{/title}}</title>
+</head>
+<body>
+<ul class="errors">
+    {{#errors}}
+        {{#.}}<li><font color="red">{{.}}</font></li>{{/.}}
+    {{/errors}}
+</ul>
+{{{body}}}
+</body>
+</html>

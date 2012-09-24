@@ -1,0 +1,13 @@
+{{#everyauth.password}}
+    <form action="" method="post">
+        <label for="login-field">{{loginFormFieldName}}:</label>
+        <input id="login-field" type="text" name="{{loginFormFieldName}}" value="{{email}}">
+        <br/>
+        <label for="password-field">{{passwordFormFieldName}}:</label>
+        <input id="password-field" type="password" name="{{passwordFormFieldName}}"><br/>
+        <input type="submit" value="{{title}}" />
+    </form>
+{{/everyauth.password}}
+or
+<br>
+<a href="/auth/facebook">{{title}} using Facebook</a>
