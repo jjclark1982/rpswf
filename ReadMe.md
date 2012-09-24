@@ -61,3 +61,4 @@ The server should provide a REST API, with support for
 - Node + Railway.js
 - CouchApp (difficult to restrict data visibility)
 - ServiceStack (difficult to host on generic platform)
+- Parse.com Cloud Code (can't run arbitrary tasks, so probably need an external worker)
