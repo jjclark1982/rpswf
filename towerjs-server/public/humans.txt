@@ -1,0 +1,19 @@
+/* TEAM */
+  Frontend:   Jesse Clark
+  GitHub:     jjclark1982
+  Twitter:    -
+  Location:   -
+
+  Backend:    Jesse Clark
+  GitHub:     jjclark1982
+  Twitter:    -
+  Location:   -
+
+  Mobile:     Jesse Clark
+  GitHub:     jjclark1982
+  Twitter:    -
+  Location:   -
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Tower, jQuery, Underscore.js
