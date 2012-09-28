@@ -1,6 +1,9 @@
 # Tower.debug = Tower.env == 'development'
 
 App.bootstrap = (data) ->
+  App.User.load(data.users) if data.users
+  App.Game.load(data.games) if data.games
+  App.Move.load(data.moves) if data.moves
   # Optimized rendering (force right at bottom of DOM, before DOM ready)
   Ember.Handlebars.bootstrap(Ember.$(document))
 

@@ -35,19 +35,19 @@ The server should provide a REST API, with support for
 ### Start a game:
     POST /games
         players: [alice, bob]
-        moves: [{player: alice, move: rock}] (optional)
+        moves: [{player: alice, action: rock}] (optional)
     GET /games/N
         players: [alice, bob]
-        moves: [{player: alice, move: secret}]
+        moves: [{player: alice, action: secret}]
 - must validate that both players exist and are not the same person
 - must validate that only legal moves were played
 - must not send a client information that the user is not allowed to see (fog of war)
 
 ### Play a move on a game:
     POST /games/N/moves
-        {player: bob, move: paper}
+        {player: bob, action: paper}
     PATCH /games/N (optional)
-        moves: [..., {player: bob, move: paper}]
+        moves: [..., {player: bob, action: paper}]
 - must validate that the client is the player
 - must validate that it was the player's turn and the move was legal
 - should return the Game object with the most up-to-date results, i.e. who won
